@@ -81,15 +81,14 @@ Do the [Get out from rabbit hole](#get-out-from-rabbit-hole)
 > [!CAUTION]
 > Make sure of the proper connection, you can see the pinout labels under the pinheader!
 
-- Connect the **OTG cable** with a connected keyboard thats why I suggested to buy a USB-micro to USB-A
+- Connect the **OTG cable** with a connected keyboard, I suggest to buy a USB-micro to USB-A OTG cable
 - After the device is booted and the ewelink pair app appeared press Windows + N key on your keyboard
 - Navigate to Quick settings and enter
 - Under Settings go to Wif and connect device to Wifi
-- Under Setting go to System -> Developer options -> USB debugging enbale
+- Under Setting go to System -> Developer options -> USB debugging enable
 - Check ip address
 
 Now without reboot do the adb connect and install a custom launcher
 https://github.com/seaky/nspanel_pro_tools_apk?tab=readme-ov-file#install-custom-launcher
 
-- Now you can reboot the device
-- Every time if you start 
+- Now you can reboot the device and free to go
