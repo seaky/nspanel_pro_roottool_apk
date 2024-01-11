@@ -1,3 +1,9 @@
+## Table of contents
+- [Device information ](#sonoff-nspanel-pro)
+- [What is NSPanel Pro Root tool](#nspanel-pro-roottool)
+- [Frequently Asked Questions](#frequently-asked-questions)
+- [Get out from rabbit hole](#get-out-from-rabbit-hole)
+
 ## Sonoff NSPanel Pro
 
 Sonoff NSPanel Pro is a smart home control panel which based on Android 8.1 Oreo (AOSP) system.
@@ -64,12 +70,26 @@ Especially if you see a QRCode, you lost the licence data.
 > [!WARNING]
 > Never start to sideload the device without at least launching the eWeLink App once device.
 
-Try the following
-- disassemble the unit
-- power it up by usb otg cable
-- try to access it via adb
-- use 
-```
-adb input keyevent 3
-```
-- change default launcher 
+Do the [Get out from rabbit hole](#get-out-from-rabbit-hole)
+
+## Get out from rabbit hole
+
+- Disassemble the unit
+- Connect +5V to the 5V pin and ground to GND pin min 2A DC powersource is required
+![nspanel](https://github.com/seaky/nspanel_pro_roottool_apk/blob/main/doc/assets/nspanel-pro-power-up.png?raw=true)
+
+> [!CAUTION]
+> Make sure of the proper connection, you can see the pinout labels under the pinheader!
+
+- Connect the **OTG cable** with a connected keyboard thats why I suggested to buy a USB-micro to USB-A
+- After the device is booted and the ewelink pair app appeared press Windows + N key on your keyboard
+- Navigate to Quick settings and enter
+- Under Settings go to Wif and connect device to Wifi
+- Under Setting go to System -> Developer options -> USB debugging enbale
+- Check ip address
+
+Now without reboot do the adb connect and install a custom launcher
+https://github.com/seaky/nspanel_pro_tools_apk?tab=readme-ov-file#install-custom-launcher
+
+- Now you can reboot the device
+- Every time if you start 
