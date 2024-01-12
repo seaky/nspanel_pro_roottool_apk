@@ -85,7 +85,8 @@ Do the [Get out from rabbit hole](#get-out-from-rabbit-hole)
 - After the device is booted and the ewelink pair app appeared press Windows + N key on your keyboard
 - Navigate to Quick settings and enter
 - Under Settings go to Wif and connect device to Wifi
-- Under Setting go to System -> Developer options -> USB debugging enable
+- Under Setting -> System -> About table tap multiple times to enable developer mode
+- Under Setting -> System -> Developer options -> USB debugging enable it will enable adb
 - Check ip address
 
 Now without reboot do the adb connect and install a custom launcher
