@@ -27,6 +27,25 @@ This tool allows you to install the official OTA firmwares only.
 > [!WARNING]
 > Warning, this software has been created for experimental purposes only. Perform any modifications on the device at your own risk. I assume no responsibility for any consequences of using the software!
 
+# Usage
+
+- Download the [latest apk](https://github.com/seaky/nspanel_pro_roottool_apk/releases/tag/v1.0)
+- Download the desired firmware version
+    - Many versions are available in [Where can I download the official update packages?](#where-can-i-download-the-official-update-packages)
+    - Even more could be found in [this GitHub issue](https://github.com/seaky/nspanel_pro_roottool_apk/issues/1)
+    - For firmwares `1.x` and `2.x` you can install any version over any other version (no need for incremental updates)
+    - Starting from firmware 3.0.0 (or 3.5.0 for `nspanel120p`) only diff firmwares are available, meaning that you'll need to update from specific version to specific version using diff update files
+- Ensure that you've gained access to `adb` (see (`seaky/nspanel_pro_tools_apk`)[https://github.com/seaky/nspanel_pro_tools_apk?tab=readme-ov-file#device-rooting-and-sideload] for more info)
+- Copy files using the following commands (use desired roottools and OTA file names):
+    ```sh
+    adb install nspanel-pro-roottools-1.0-release.apk
+    adb push CoolKit_Sonoff_480P_20231208_2.3.0-ota.zip /storage/emulated/0/system_update.zip
+    ```
+- Run `NSPanelRootTools` app
+    - Switch to "update" tab
+    - Tap "Verify"
+    - Tap "Install"
+
 # Frequently Asked Questions
 
 - [Where can I download the official update packages?](#where-can-i-download-the-official-update-packages)
@@ -34,6 +53,7 @@ This tool allows you to install the official OTA firmwares only.
 - [How do I reset the device?](#how-do-i-reset-the-device)
 - [Is there any benefit to update the sideloaded panel?](#is-there-any-benefit-to-update-the-sideloaded-panel)
 - [What should I do if my device has entered factory mode?](#what-should-i-do-if-my-device-has-entered-factory-mode)
+- [What version should I choose?](#what-version-should-i-choose)
 
 ## Where can I download the official update packages?
 
@@ -93,3 +113,22 @@ Now without reboot do the adb connect and install a custom launcher
 https://github.com/seaky/nspanel_pro_tools_apk?tab=readme-ov-file#install-custom-launcher
 
 - Now you can reboot the device and free to go
+
+## What version should I choose?
+
+Changes so far up from fw version 1.3 up to 3.8.0
+
+- Sonoff App evolved to Rubik App that enables webviews and custom pages - available to install as a separate package
+- Sonoff Zigbee Gateway router mode, bugfixes and new products were added - available to install as a separate package via NSPanel Tools since version 2.3.2
+- OS Commands replaced by busybox since 1.5.6 - although it freed up more space but other tools such as frps/c ate it up, smaller cli footprint
+- Single touch awake device by default since 1.10.0 - on the one hand it is an advantage because the device wont deepsleep anymore but you cant you screen off touch events anymore
+- Kernel Proximity driver, above 3.0.0 wont support modification of proximity distance - no workaround, capability loss
+- Minor changes in rockchip drivers such as wifi and bluetooth - I have not experienced any changes regarding speed or stability between 1.5 and 3.7
+- Webview - available to install as a separate package
+- Incremental OTA packages after 3.6 only incremental packages are supported - a bit slower upgrade time, smaller network package
+
+For me the 3.0.0 and above with new kernel proximity driver is a fundamental loss of functionality, and because of that, it is a no-go.
+
+For me the 1.10.0 and above with loss of screen-off touch events also a no-go.
+
+So till 1.9.0 or 2.x is ok depends on you preference
